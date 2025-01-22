@@ -1,0 +1,93 @@
+body {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('skateboard_ramp_dogelumens.png');
+    /* background-image: url('halfpipe_city.jpg'); */
+    background-size: contain;
+    background-position:bottom;
+    background-repeat: no-repeat;
+}
+
+@keyframes rotationAnim {
+    0% {transform: rotate(-180deg);}
+    50% {transform: rotate(0);}
+    100% {transform: rotate(-180deg);}
+}
+
+@keyframes rotationAnimRev {
+    0% {transform: rotate(180deg);}
+    50% {transform: rotate(0);}
+    100% {transform: rotate(180deg);}
+}
+
+@keyframes kickflip {
+    0% {transform: rotate(0);}
+    40% {transform: rotate(0);}
+    50% {transform: rotate3d(0, 1, 0, 360deg);}
+    55% {transform: rotate3d(0, 1, 0, 360deg);}
+    90% {transform: rotate3d(0, 1, 0, 360deg);}
+    100% {transform: rotate3d(0, 1, 0, 0);}
+}
+
+.countdown {
+    font-size: 2em;
+    margin-top: 20px;
+    color: #333;
+}
+.crypto-price {
+    margin-top: 30px;
+    font-size: 1.5em;
+    color: #ff9900;
+}
+.whoiswinning {
+    margin-top: 30px;
+    font-size: 1.5em;
+    color: #333;
+}
+.invisible_parent{
+    background-color: rgba(255, 255, 255, 0);
+    width:40px;
+    height:40px;
+    position: relative;
+    bottom: 50px;
+    animation: rotationAnim 5s infinite;
+
+}
+.skateboard_container{
+    border:1px solid black;
+    border-radius: 25px;
+    width:500px;
+    height:500px;
+    position: absolute;
+    background-color: white;
+    left: -510px;
+    top: -260px;
+}
+.skateboard_image{
+    width:500px;
+    height:500px;
+    position: absolute;
+    background-image: url('deska.png');
+    background-size: contain;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    left: -800px;
+    top: -250px;
+    animation: kickflip 5s infinite;
+}
+
+.info_container{
+
+    align-items: center;
+    position: absolute;
+    left: 70px;
+    top: 100px;
+    background-color: white;
+    animation: rotationAnimRev 5s infinite;
+}
