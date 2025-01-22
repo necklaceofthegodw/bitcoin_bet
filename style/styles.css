@@ -7,8 +7,8 @@ body {
     align-items: center;
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('skateboard_ramp_dogelumens.png');
-    /* background-image: url('halfpipe_city.jpg'); */
+    background-image: url('../images/skateboard_ramp_dogelumens.png');
+    /* background-image: url(../'images/halfpipe_city.jpg'); */
     background-size: contain;
     background-position:bottom;
     background-repeat: no-repeat;
@@ -73,7 +73,7 @@ body {
     width:500px;
     height:500px;
     position: absolute;
-    background-image: url('deska.png');
+    background-image: url('../images/deska.png');
     background-size: contain;
     background-position:bottom;
     background-repeat: no-repeat;
