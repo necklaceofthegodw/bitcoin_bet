@@ -47,13 +47,10 @@ function fetchCryptoPrices() {
 
 function checkWhoIsWinning(price){
     if(price > 75000) {
-        console.log(price);
-        console.log("Hello world!");
         document.getElementById('whoiswinning').innerHTML = "Zbychu is winning";
     }
     else {
         console.log(price);
-        //console.log("Hello world!");
         document.getElementById('whoiswinning').innerHTML = "Krzychu is winning";
     }
 }
@@ -61,6 +58,8 @@ function checkWhoIsWinning(price){
 const invisible_parent = document.querySelector(".invisible_parent");
 const skateboard_image = document.querySelector(".skateboard_image");
 const info_container = document.querySelector(".info_container");
+const arrowRight = document.querySelector(".arrow_right");
+const arrowLeft = document.querySelector(".arrow_left");
 
 var angle = -180;
 var minAngle = -180;
@@ -80,13 +79,22 @@ document.addEventListener('keydown', (e) => {
     if(!IsMoving){
         IsMoving = true;
 
-        if (e.code === "ArrowLeft"){
+        arrowRight.style.animationPlayState = "running";
+        arrowLeft.style.animationPlayState = "running";
+
+
+        if (e.code == "ArrowLeft"){
+            // arrowRight.style.animationPlayState = "paused";
+            // arrowRight.style.opacity = 0;
             intervalId = setInterval(rotateInvisibleParent, 0.01);
             direction = 1;
         }    
-        if (e.code === "ArrowRight"){
+        if (e.code == "ArrowRight"){
+            // ArrowLeft.style.animationPlayState = "paused";
             intervalId = setInterval(rotateInvisibleParent, 0.01);
             direction = -1;
+            //ArrowRight.style.opacity = "10%";
+
         }      
     }
 

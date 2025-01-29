@@ -39,6 +39,10 @@ body {
     90% {transform: rotate3d(0, 1, 0, 360deg);}
     100% {transform: rotate3d(0, 1, 0, 0);}
 }
+
+@keyframes flash{
+    50% {opacity: 20%;}
+}
 .main_container{
     width:100vw;
     height:100vh;
@@ -83,6 +87,36 @@ body {
     left: -510px;
     top: -260px;
 }
+
+.arrows{
+    display:flex;
+    flex-direction: row;
+    align-items: bottom;
+}
+.arrow_right{
+    width:50px;
+    height:50px;
+    position: right;
+    margin-left:40px;
+    background-image: url('../images/keyboard_key_right.png');
+    background-size: contain;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    animation: flash 1.5s infinite running;
+}
+
+.arrow_left{
+    width:50px;
+    height:50px;
+    position: left;
+    margin-right:40px;
+    background-image: url('../images/keyboard_key_left.png');
+    background-size: contain;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    animation: flash 1.5s infinite running;
+}
+
 .skateboard_image{
     width:500px;
     height:500px;
@@ -98,10 +132,11 @@ body {
 
 .info_container{
 
+    border-radius: 35px;
     align-items: center;
     position: absolute;
-    left: 70px;
-    top: 100px;
+    top: 110px;
+    left: 35px;
     background-color: white;
     transform: rotate(180deg);
 
