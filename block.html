@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Animation</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        #block {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: none;
+        }
+
+        @keyframes moveRight {
+            0% { left: 0; }
+            100% { left: calc(100vw - 50px); }
+        }
+
+        @keyframes moveLeft {
+            0% { left: calc(100vw - 50px); }
+            100% { left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="block"></div>
+    
+    <script>
+        const block = document.getElementById('block');
+        let isAnimating = false;
+        let isMovingForward = true; // Track direction
+
+        function startAnimation() {
+            isAnimating = true;
+            block.style.animation = isMovingForward ? 'moveRight 5s linear infinite' : 'moveLeft 5s linear infinite';
+        }
+
+        function stopAnimation() {
+            isAnimating = false;
+            block.style.animation = 'none'; // Stop the current animation
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                if (!isAnimating) {
+                    startAnimation(); // Start moving forward if not already animating
+                }
+                isMovingForward = true; // Ensure the direction is set to forward
+                stopAnimation(); // Stop before applying animation again
+                startAnimation(); // Restart animation in the correct direction
+            } else if (event.key === 'ArrowLeft') {
+                if (!isAnimating) {
+                    startAnimation(); // Start moving backward if not already animating
+                }
+                isMovingForward = false; // Ensure the direction is set to backward
+                stopAnimation(); // Stop before applying animation again
+                startAnimation(); // Restart animation in the correct direction
+            }
+        });
+
+        startAnimation(); // Start the initial animation
+    </script>
+</body>
+</html>

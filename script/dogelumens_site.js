@@ -58,6 +58,49 @@ function checkWhoIsWinning(price){
     }
 }
 
+const invisible_parent = document.querySelector(".invisible_parent");
+const skateboard_image = document.querySelector(".skateboard_image");
+const info_container = document.querySelector(".info_container");
+
+var angle = -180;
+var minAngle = -180;
+var maxAngle = 0;
+var IsMoving = false;
+var direction = 1;
+
+let intervalId;
+
+document.addEventListener('keyup', (e) => {
+    IsMoving = false;
+    clearInterval(intervalId);
+});
+
+document.addEventListener('keydown', (e) => {
+
+    if(!IsMoving){
+        IsMoving = true;
+
+        if (e.code === "ArrowLeft"){
+            intervalId = setInterval(rotateInvisibleParent, 0.01);
+            direction = 1;
+        }    
+        if (e.code === "ArrowRight"){
+            intervalId = setInterval(rotateInvisibleParent, 0.01);
+            direction = -1;
+        }      
+    }
+
+});
+
+function rotateInvisibleParent(){
+
+    angle+=0.3*direction;
+    if(angle < minAngle) angle = minAngle;
+    if(angle > maxAngle) angle = maxAngle;
+
+    invisible_parent.style.transform = "rotate(" + angle + "deg"+")" ;   
+    info_container.style.transform = "rotate(" + -angle + "deg"+")" ;     
+}
 
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown(); // Initial call
