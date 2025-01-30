@@ -41,7 +41,7 @@ body {
 }
 
 @keyframes flash{
-    50% {opacity: 20%;}
+    50% {opacity: 50%;}
 }
 .main_container{
     width:100vw;

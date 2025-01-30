@@ -70,6 +70,11 @@ var direction = 1;
 let intervalId;
 
 document.addEventListener('keyup', (e) => {
+
+    arrowLeft.style.opacity = 1;
+    arrowRight.style.opacity = 1;
+    arrowRight.style.animationPlayState = "running";
+    arrowLeft.style.animationPlayState = "running";
     IsMoving = false;
     clearInterval(intervalId);
 });
@@ -79,21 +84,22 @@ document.addEventListener('keydown', (e) => {
     if(!IsMoving){
         IsMoving = true;
 
-        arrowRight.style.animationPlayState = "running";
-        arrowLeft.style.animationPlayState = "running";
+        arrowRight.style.animationPlayState = "paused";
+        arrowLeft.style.animationPlayState = "paused";
+        
+        arrowLeft.style.opacity = 0;
+        arrowRight.style.opacity = 0;
+
+
 
 
         if (e.code == "ArrowLeft"){
-            // arrowRight.style.animationPlayState = "paused";
-            // arrowRight.style.opacity = 0;
             intervalId = setInterval(rotateInvisibleParent, 0.01);
             direction = 1;
         }    
         if (e.code == "ArrowRight"){
-            // ArrowLeft.style.animationPlayState = "paused";
             intervalId = setInterval(rotateInvisibleParent, 0.01);
             direction = -1;
-            //ArrowRight.style.opacity = "10%";
 
         }      
     }
